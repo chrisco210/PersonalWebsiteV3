@@ -3,6 +3,7 @@ import Topbar from "../components/Topbar"
 import Theme from "../Theme"
 import TitledList from "../components/TitledList"
 import ProjectCard from "../components/ProjectCard"
+import Footer from "../components/footer/Footer"
 
 import { Typography, Link, Grid, Box } from "@material-ui/core"
 import {
@@ -83,6 +84,7 @@ const styles = makeStyles(t => ({
   },
   accentBg: {
     backgroundColor: grey[200],
+    color: grey[200],
   },
 }))
 
@@ -214,6 +216,7 @@ export default function Home() {
       <Box id="contact" className={[classes.flex]}>
         <TitledList title={contacts.title} items={contacts.items} />
       </Box>
+      <Footer />
     </Theme>
   )
 }
