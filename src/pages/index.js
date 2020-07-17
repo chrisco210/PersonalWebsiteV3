@@ -4,9 +4,8 @@ import Theme from "../Theme"
 import TitledList from "../components/TitledList"
 import ProjectCard from "../components/ProjectCard"
 
-import { createMuiTheme } from "@material-ui/core/styles"
-import { makeStyles } from "@material-ui/core/styles"
-import { Box, Container } from "@material-ui/core"
+import { Typography, Link, Grid, Box } from "@material-ui/core"
+import { createMuiTheme, makeStyles } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
 
 const theme = createMuiTheme({
@@ -63,13 +62,12 @@ const styles = makeStyles(t => ({
   flexCards: {
     display: "flex",
     minHeight: "100vh",
-    justifyContent: "start",
     paddingLeft: t.spacing(12),
     paddingRight: t.spacing(12),
   },
   cardContainer: {
     flexShrink: 1,
-    margin: t.spacing(2),
+    padding: t.spacing(20),
   },
   grow: {
     flexGrow: 1,
@@ -110,22 +108,52 @@ const projects = [
   {
     name: "TempChamberView",
     desc: (
-      <p>
+      <Typography variant="body1">
         TempChamberView is a node.js and express based web interface for a
         temperature calibration chamber at{" "}
-        <a href="https://shop.wickeddevice.com/">Wicked Device</a>. This
-        software was succesfully used for 3 years until the company purchased a
-        new temperature calibration chamber.
-      </p>
+        <Link
+          href="https://shop.wickeddevice.com/"
+          color="secondary"
+          target="_blank"
+        >
+          Wicked Device
+        </Link>
+        . This software was succesfully used for 3 years until the company
+        purchased a new temperature calibration chamber.
+      </Typography>
     ),
     image: {
-      url: "",
+      url: "/images/TempChamberControl.png",
       alttext: "Screenshot of the temperature chamber",
       imagetitle: "TempChamberView screenshot",
     },
     links: [
       { name: "Github", href: "https://github.com/chrisco210/TempChamberView" },
     ],
+  },
+  {
+    name: "Critter World",
+    desc: (
+      <Typography variant="body1">
+        Critter World is a simulation of critters defined by programs written in
+        Java for a CS2112 final project. Critters can move around a hexagonal
+        world, eat manna, attack other critters, spawn new critters, and mate
+        with other critters. The behavior of critters is determined by their
+        program, which can mutate and chage as they mate and spawn new critters.
+        Critter world includes a functional GUI created using JavaFX. This
+        project involved writing a parser and interpreter for critter programs,
+        writing a simulator that simulated the world and ran critter programs,
+        writing a GUI, and finally, writing a networked, distributed version of
+        the same program, where a simulation was run on a server and any number
+        of clients could connect to that server to view and modify the world.
+      </Typography>
+    ),
+    image: {
+      url: "/images/critterworld.png",
+      alttext: "Screenshot of critter world",
+      imagetitle: "Screenshot of critter world",
+    },
+    links: [],
   },
 ]
 
@@ -138,24 +166,27 @@ export default function Home() {
       <Box id="title" className={classes.flex}>
         <TitledList title={titleScreen.title} items={titleScreen.items} />
       </Box>
-      <Box id="projects" className={[classes.flexCards, classes.accentBg]}>
+      <Box id="projects" className={[classes.cardContainer, classes.accentBg]}>
         {projects.map((e, i) => {
           let left = i % 2 === 0
           return (
-            <React.Fragment>
-              <Box
-                alignSelf={left ? "flex-start" : "flex-end"}
-                className={classes.cardContainer}
-                p={1}
+            <React.Fragment key={i}>
+              <Grid
+                container
+                spacing={3}
+                direction="column"
+                alignItems={left ? "flex-start" : "flex-end"}
               >
-                <ProjectCard
-                  name={e.name}
-                  desc={e.desc}
-                  image={e.image}
-                  key={e.name}
-                  links={e.links}
-                />
-              </Box>
+                <Grid item className={classes.cardContainer} sm={12} md={6}>
+                  <ProjectCard
+                    name={e.name}
+                    desc={e.desc}
+                    image={e.image}
+                    key={e.name}
+                    links={e.links}
+                  />
+                </Grid>
+              </Grid>
             </React.Fragment>
           )
         })}

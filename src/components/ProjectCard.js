@@ -11,10 +11,10 @@ import Typography from "@material-ui/core/Typography"
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    maxHeight: 500,
+    maxHeight: 750,
   },
   media: {
-    height: 200,
+    height: "30vh",
   },
   grow: {
     flexGrow: 1,
@@ -26,7 +26,7 @@ export default function ProjectCard(props) {
 
   return (
     <React.Fragment>
-      <Card className={classes.root} alignSelf="flex-end">
+      <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
@@ -46,7 +46,12 @@ export default function ProjectCard(props) {
         <CardActions>
           {props.links.map(e => {
             return (
-              <Button href={e.href} color="primary" key={e.name}>
+              <Button
+                href={e.href}
+                color="primary"
+                key={e.name}
+                target="_blank"
+              >
                 {e.name}
               </Button>
             )
