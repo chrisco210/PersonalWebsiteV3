@@ -5,52 +5,58 @@ import TitledList from "../components/TitledList"
 import ProjectCard from "../components/ProjectCard"
 
 import { Typography, Link, Grid, Box } from "@material-ui/core"
-import { createMuiTheme, makeStyles } from "@material-ui/core/styles"
+import {
+  createMuiTheme,
+  makeStyles,
+  responsiveFontSizes,
+} from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
 
-const theme = createMuiTheme({
-  typography: {
-    h1: {
-      fontFamily: "Roboto Slab, serif",
-      fontWeight: "lighter",
+const theme = responsiveFontSizes(
+  createMuiTheme({
+    typography: {
+      h1: {
+        fontFamily: "Roboto Slab, serif",
+        fontWeight: "lighter",
+      },
+      h2: {
+        fontFamily: "Roboto Slab, serif",
+      },
+      h3: {
+        fontFamily: "Roboto Slab, serif",
+      },
+      h4: {
+        fontFamily: "Roboto Slab, serif",
+      },
+      h5: {
+        fontFamily: "Roboto Slab, serif",
+      },
+      body1: {
+        fontFamily: "Open Sans, sans-serif",
+      },
+      body2: {
+        fontFamily: "Open Sans, sans-serif",
+      },
+      button: {
+        fontFamily: "Open Sans, sans-serif",
+      },
     },
-    h2: {
-      fontFamily: "Roboto Slab, serif",
+    palette: {
+      primary: {
+        light: "#b8bbcf",
+        main: "#888b9e",
+        dark: "#5b5e70",
+        contrastText: "#fff",
+      },
+      secondary: {
+        light: "#bfd4df",
+        main: "#8fa3ad",
+        dark: "#61747e",
+        contrastText: "#000",
+      },
     },
-    h3: {
-      fontFamily: "Roboto Slab, serif",
-    },
-    h4: {
-      fontFamily: "Roboto Slab, serif",
-    },
-    h5: {
-      fontFamily: "Roboto Slab, serif",
-    },
-    body1: {
-      fontFamily: "Open Sans, sans-serif",
-    },
-    body2: {
-      fontFamily: "Open Sans, sans-serif",
-    },
-    button: {
-      fontFamily: "Open Sans, sans-serif",
-    },
-  },
-  palette: {
-    primary: {
-      light: "#b8bbcf",
-      main: "#888b9e",
-      dark: "#5b5e70",
-      contrastText: "#fff",
-    },
-    secondary: {
-      light: "#bfd4df",
-      main: "#8fa3ad",
-      dark: "#61747e",
-      contrastText: "#000",
-    },
-  },
-})
+  })
+)
 
 const styles = makeStyles(t => ({
   flex: {
@@ -62,12 +68,12 @@ const styles = makeStyles(t => ({
   flexCards: {
     display: "flex",
     minHeight: "100vh",
-    paddingLeft: t.spacing(12),
-    paddingRight: t.spacing(12),
   },
   cardContainer: {
     flexShrink: 1,
-    padding: t.spacing(20),
+    [theme.breakpoints.up("md")]: {
+      padding: t.spacing(20),
+    },
   },
   grow: {
     flexGrow: 1,
@@ -177,7 +183,13 @@ export default function Home() {
                 direction="column"
                 alignItems={left ? "flex-start" : "flex-end"}
               >
-                <Grid item className={classes.cardContainer} sm={12} md={6}>
+                <Grid
+                  item
+                  className={classes.cardContainer}
+                  sm={12}
+                  md={12}
+                  lg={6}
+                >
                   <ProjectCard
                     name={e.name}
                     desc={e.desc}
