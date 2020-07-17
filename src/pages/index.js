@@ -90,12 +90,20 @@ const sections = [
   { name: "Home", href: "#title" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
-  { name: "Resume", href: "#" },
+  {
+    name: "Resume",
+    href: "https://resources.rachlinski.net/documents/resume.pdf",
+  },
 ]
 
 const titleScreen = {
   title: ["Chris", "Rachlinski"],
   items: ["CS Major, Cornell University '23"],
+}
+
+const contacts = {
+  title: "Contact me",
+  items: ["cjr269@cornell.edu", "chrisrachlinski@gmail.com"],
 }
 
 const projects = [
@@ -204,7 +212,7 @@ export default function Home() {
         })}
       </Box>
       <Box id="contact" className={[classes.flex]}>
-        <p>Contact Information goes here</p>
+        <TitledList title={contacts.title} items={contacts.items} />
       </Box>
     </Theme>
   )

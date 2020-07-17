@@ -7,7 +7,7 @@ export default function TitledList(props) {
   return (
     <React.Fragment>
       <Box>
-        {props.title.length ? (
+        {Array.isArray(props) ? (
           props.title.map((e, i) => (
             <Typography variant="h1" key={i}>
               {e}
