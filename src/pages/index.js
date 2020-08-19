@@ -108,6 +108,9 @@ const styles = makeStyles(t => ({
   },
   cardRoot: {
     display: "flex",
+    [theme.breakpoints.up("md")]: {
+      minHeight: 151,
+    },
   },
   cardDetails: {
     display: "flex",
@@ -115,12 +118,6 @@ const styles = makeStyles(t => ({
   },
   cover: {
     width: 151,
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
   },
 }))
 
@@ -140,8 +137,15 @@ const titleScreen = {
 }
 
 const contacts = {
-  title: "Contact me",
-  items: ["cjr269@cornell.edu", "chrisrachlinski@gmail.com"],
+  title: "Contact Me",
+  items: [
+    <Link href="mailto:cjr269@cornell.edu" variant="h4">
+      cjr269@cornell.edu
+    </Link>,
+    <Link href="mailto:chrisrachlinski@gmail.com" variant="h4">
+      chrisrachlinski@gmail.com
+    </Link>,
+  ],
 }
 
 const projects = [
@@ -268,21 +272,33 @@ export default function Home() {
                 <Typography component="h5" variant="h5">
                   Chris Rachlinski
                 </Typography>
-                <Typography variant="subtitle1" color="textSecondary">
-                  cjr269@cornell.edu
+                <Typography>
+                  <Link href="https://www.linkedin.com/in/chris-rachlinski-00586a178/">
+                    LinkedIn
+                  </Link>
                 </Typography>
-                <Typography variant="subtitle1" color="textSecondary">
-                  chrisrachlinski@gmail.com
+                <Typography>
+                  <Link href="https://github.com/chrisco210">Github</Link>
+                </Typography>
+                <Typography>
+                  <Link href="mailto:cjr269@cornell.edu">
+                    cjr269@cornell.edu
+                  </Link>
+                </Typography>
+                <Typography>
+                  <Link href="mailto:chrisrachlinski@gmail.com">
+                    chrisrachlinski@gmail.com
+                  </Link>
                 </Typography>
               </CardContent>
-              <div className={classes.controls}></div>
             </div>
           </Card>
           <Grid item xs={0} md={6}></Grid>
           <FooterPanel
             align="flex-end"
-            items={["item 4", "item 5", "item 6"]}
-            header="Links"
+            items={[
+              <Typography variant="p">© Chris Rachlinski 2020</Typography>,
+            ]}
           />
         </Footer>
       </Box>
