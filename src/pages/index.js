@@ -4,8 +4,17 @@ import Theme from "../Theme"
 import TitledList from "../components/TitledList"
 import ProjectCard from "../components/ProjectCard"
 import Footer from "../components/footer/Footer"
+import FooterPanel from "../components/footer/FooterPanel"
 
-import { Typography, Link, Grid, Box } from "@material-ui/core"
+import {
+  Typography,
+  Link,
+  Grid,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+} from "@material-ui/core"
 import {
   createMuiTheme,
   makeStyles,
@@ -63,17 +72,25 @@ const styles = makeStyles(t => ({
   flex: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
     minHeight: "100vh",
+    alignItems: "center",
+  },
+  center: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: t.spacing(5),
   },
   flexCards: {
     display: "flex",
     minHeight: "100vh",
   },
   cardContainer: {
+    paddingTop: t.spacing(5),
+    pattingBottom: t.spacing(5),
     flexShrink: 1,
     [theme.breakpoints.up("md")]: {
-      padding: t.spacing(20),
+      paddingLeft: t.spacing(20),
+      paddingRight: t.spacing(20),
     },
   },
   grow: {
@@ -84,7 +101,26 @@ const styles = makeStyles(t => ({
   },
   accentBg: {
     backgroundColor: grey[200],
-    color: grey[200],
+  },
+
+  content: {
+    flex: "1 0 auto",
+  },
+  cardRoot: {
+    display: "flex",
+  },
+  cardDetails: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  cover: {
+    width: 151,
+  },
+  controls: {
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
 }))
 
@@ -182,7 +218,10 @@ export default function Home() {
       <Box id="title" className={classes.flex}>
         <TitledList title={titleScreen.title} items={titleScreen.items} />
       </Box>
-      <Box id="projects" className={[classes.cardContainer, classes.accentBg]}>
+      <Box id="projects" className={[classes.accentBg, classes.cardContainer]}>
+        <Box className={classes.center}>
+          <Typography variant="h1">Projects</Typography>
+        </Box>
         {projects.map((e, i) => {
           let left = i % 2 === 0
           return (
@@ -216,7 +255,37 @@ export default function Home() {
       <Box id="contact" className={[classes.flex]}>
         <TitledList title={contacts.title} items={contacts.items} />
       </Box>
-      <Footer />
+      <Box className={classes.accentBg} id="footer-box">
+        <Footer>
+          <Card className={classes.cardRoot}>
+            <CardMedia
+              className={classes.cover}
+              image="/images/profile1.png"
+              title="Profile picture"
+            />
+            <div className={classes.cardDetails}>
+              <CardContent className={classes.content}>
+                <Typography component="h5" variant="h5">
+                  Chris Rachlinski
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  cjr269@cornell.edu
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  chrisrachlinski@gmail.com
+                </Typography>
+              </CardContent>
+              <div className={classes.controls}></div>
+            </div>
+          </Card>
+          <Grid item xs={0} md={6}></Grid>
+          <FooterPanel
+            align="flex-end"
+            items={["item 4", "item 5", "item 6"]}
+            header="Links"
+          />
+        </Footer>
+      </Box>
     </Theme>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid } from "@material-ui/core"
+import { Grid, Typography } from "@material-ui/core"
 const useStyles = makeStyles(t => ({
   grow: {
     flexGrow: 1,
@@ -20,15 +20,14 @@ export default function FooterPanel(props) {
         spacing={1}
         alignItems={props.align}
       >
-        <Grid item>
-          <p>Item 1</p>
-        </Grid>
-        <Grid item>
-          <p>Item 1</p>
-        </Grid>
-        <Grid item>
-          <p>Item 1</p>
-        </Grid>
+        <Typography variant="h5">{props.header}</Typography>
+        {props.items.map((e, i) => {
+          return (
+            <Grid item key={i}>
+              {e}
+            </Grid>
+          )
+        })}
       </Grid>
     </React.Fragment>
   )
