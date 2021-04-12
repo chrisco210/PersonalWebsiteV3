@@ -22,6 +22,10 @@ import {
 } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
 
+/**
+ * Main page
+ */
+
 const theme = responsiveFontSizes(
   createMuiTheme({
     typography: {
@@ -133,7 +137,7 @@ const sections = [
 
 const titleScreen = {
   title: ["Chris", "Rachlinski"],
-  items: ["CS Major, Cornell University '23"],
+  items: ["Computer Science at Cornell Engineering '23"],
 }
 
 const contacts = {
@@ -149,6 +153,38 @@ const contacts = {
 }
 
 const projects = [
+  {
+    name: "Lml",
+    desc: (
+      <React.Fragment>
+        <Typography variant="body1">
+          Lml is a functional programming language that is compiled into Lambda
+          calculus. It based on the syntax of OCaml, and includes features such
+          as first class functions, recursive functions, n-ary tuples, lists,
+          while loops, sequences, and references. This project was completed for
+          CS 4110 Programming Languages and Logics, in collaboration with Aidan
+          Campbell.
+        </Typography>
+        <br />
+        <Typography variant="body1">
+          You can try an online version of the same interpreter{" "}
+          <Link href="/lml" variant="body1">
+            here
+          </Link>{" "}
+          or at the link below.
+        </Typography>
+      </React.Fragment>
+    ),
+    image: {
+      url: "/images/lml.png",
+      alttext: "Lml",
+      imagetitle: "Lml",
+    },
+    links: [
+      { name: "Github", href: "https://github.com/chrisco210/Lml" },
+      { name: "Online Demo", href: "/lml" },
+    ],
+  },
   {
     name: "OScrabble",
     desc:
@@ -190,19 +226,26 @@ const projects = [
   {
     name: "Critter World",
     desc: (
-      <Typography variant="body1">
-        Critter World is a simulation of critters defined by programs written in
-        Java for a CS2112 final project. Critters can move around a hexagonal
-        world, eat manna, attack other critters, spawn new critters, and mate
-        with other critters. The behavior of critters is determined by their
-        program, which can mutate and chage as they mate and spawn new critters.
-        Critter world includes a functional GUI created using JavaFX. This
-        project involved writing a parser and interpreter for critter programs,
-        writing a simulator that simulated the world and ran critter programs,
-        writing a GUI, and finally, writing a networked, distributed version of
-        the same program, where a simulation was run on a server and any number
-        of clients could connect to that server to view and modify the world.
-      </Typography>
+      <React.Fragment>
+        <Typography variant="body1">
+          Critter World is a simulation of critters defined by programs written
+          in Java for a CS2112 final project. Critters can move around a
+          hexagonal world, eat manna, attack other critters, spawn new critters,
+          and mate with other critters. The behavior of critters is determined
+          by their program, which can mutate and chage as they mate and spawn
+          new critters. Critter world includes a functional GUI created using
+          JavaFX.
+        </Typography>
+        <br></br>
+        <Typography variant="body1">
+          This project involved writing a parser and interpreter for critter
+          programs, writing a simulator that simulated the world and ran critter
+          programs, writing a GUI, and finally, writing a networked, distributed
+          version of the same program, where a simulation was run on a server
+          and any number of clients could connect to that server to view and
+          modify the world.
+        </Typography>
+      </React.Fragment>
     ),
     image: {
       url: "/images/critterworld.png",
@@ -297,7 +340,7 @@ export default function Home() {
           <FooterPanel
             align="flex-end"
             items={[
-              <Typography variant="p">© Chris Rachlinski 2020</Typography>,
+              <Typography variant="p">© Chris Rachlinski 2021</Typography>,
             ]}
           />
         </Footer>
