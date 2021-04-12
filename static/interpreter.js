@@ -17750,6 +17750,13 @@
 onmessage = function (e) {
   console.log("Recieved worker")
   console.log(e.data)
-  let res = lml.interp(e.data)
-  postMessage(res)
+  try {
+    let res = lml.interp(e.data)  
+    postMessage(res)
+  } catch (e) {
+    postMessage({error: e, result: "Error"})
+  }
+
+  
+  
 }

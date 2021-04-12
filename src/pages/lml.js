@@ -9,6 +9,8 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core"
+
+import Interface from "../lml/Interface"
 import {
   createMuiTheme,
   makeStyles,
@@ -16,12 +18,66 @@ import {
 } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
 
-import Interface from "../lml/Interface"
+/**
+ * Main page
+ */
 
 /**
  * Page to run the LML interpreter
  */
 
+const styles = makeStyles(t => ({
+  flex: {
+    display: "flex",
+    justifyContent: "center",
+    minHeight: "100vh",
+    alignItems: "center",
+  },
+  center: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: t.spacing(5),
+  },
+  flexCards: {
+    display: "flex",
+    minHeight: "100vh",
+  },
+  cardContainer: {
+    paddingTop: t.spacing(5),
+    pattingBottom: t.spacing(5),
+    flexShrink: 1,
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: t.spacing(20),
+      paddingRight: t.spacing(20),
+    },
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  shrink: {
+    flexShrink: 1,
+  },
+  accentBg: {
+    backgroundColor: grey[200],
+  },
+
+  content: {
+    flex: "1 0 auto",
+  },
+  cardRoot: {
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      minHeight: 151,
+    },
+  },
+  cardDetails: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  cover: {
+    width: 151,
+  },
+}))
 const theme = responsiveFontSizes(
   createMuiTheme({
     typography: {
@@ -68,9 +124,12 @@ const theme = responsiveFontSizes(
   })
 )
 export default function Lml() {
+  const classes = styles()
   return (
     <Theme theme={theme}>
-      <Interface></Interface>
+      <Box id="projects" className={[classes.cardContainer]}>
+        <Interface></Interface>
+      </Box>
     </Theme>
   )
 }
