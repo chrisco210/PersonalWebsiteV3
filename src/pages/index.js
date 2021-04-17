@@ -130,7 +130,7 @@ const sections = [
   { name: "Home", href: "#title" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
-  { name: "Work Experience", href: "#work" },
+  // { name: "Work Experience", href: "#work" },
   {
     name: "Resume",
     href: "https://resources.rachlinski.net/documents/resume.pdf",
@@ -262,6 +262,8 @@ const projects = [
   },
 ]
 
+const work = [{ name: "Test 1", desc: "blah blah" }]
+
 export default function Home() {
   const classes = styles()
 
@@ -280,9 +282,9 @@ export default function Home() {
         <ProjectPanel proj={projects}></ProjectPanel>
       </Box>
 
-      <Box id="work" className={classes.flex}></Box>
+      {/* <Box id="work" className={classes.flex}></Box> */}
 
-      <Box id="contact" className={[classes.flex, classes.accentBg]}>
+      <Box id="contact" className={[classes.flex]}>
         <TitledList title={contacts.title} items={contacts.items} />
       </Box>
 
