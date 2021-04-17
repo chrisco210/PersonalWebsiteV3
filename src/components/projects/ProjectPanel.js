@@ -1,5 +1,5 @@
 import React from "react"
-import ProjectCard from "../projects/ProjectPanel"
+import ProjectCard from "../ProjectCard"
 
 import { Grid } from "@material-ui/core"
 import {
@@ -66,16 +66,23 @@ const useStyles = makeStyles(t => ({
   },
 }))
 
+/**
+ * Project panel is the panel containing all projects on the main page
+ * @param  props contains a proj object
+ * @returns
+ */
 export default function ProjectPanel(props) {
   const classes = useStyles()
 
-  return (
-    <React.Fragment>
-      {props.proj.map(e => (
-        <p>{e}</p>
-      ))}
-    </React.Fragment>
-  )
+  // return (
+  //   <React.Fragment>
+  //     {props.proj.map(e => (
+  //       <p>{e}</p>
+  //     ))}
+  //   </React.Fragment>
+  // )
+
+  console.log(props)
 
   return (
     <React.Fragment>

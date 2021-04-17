@@ -8,6 +8,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Container,
 } from "@material-ui/core"
 
 import Interface from "../lml/Interface"
@@ -127,9 +128,9 @@ export default function Lml() {
   const classes = styles()
   return (
     <Theme theme={theme}>
-      <Box id="projects" className={[classes.cardContainer]}>
+      <Container maxWidth="lg">
         <Interface></Interface>
-      </Box>
+      </Container>
     </Theme>
   )
 }

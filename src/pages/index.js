@@ -2,9 +2,10 @@ import React from "react"
 import Topbar from "../components/Topbar"
 import Theme from "../Theme"
 import TitledList from "../components/TitledList"
-import ProjectCard from "../components/ProjectCard"
+//import ProjectCard from "../components/ProjectCard"
 import Footer from "../components/footer/Footer"
 import FooterPanel from "../components/footer/FooterPanel"
+import ProjectPanel from "../components/projects/ProjectPanel"
 
 import {
   Typography,
@@ -129,6 +130,7 @@ const sections = [
   { name: "Home", href: "#title" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
+  { name: "Work Experience", href: "#work" },
   {
     name: "Resume",
     href: "https://resources.rachlinski.net/documents/resume.pdf",
@@ -171,7 +173,11 @@ const projects = [
           <Link href="/lml" variant="body1">
             here
           </Link>{" "}
-          or at the link below.
+          or at the link below. You can read the demo{" "}
+          <Link href="https://resources.rachlinski.net/documents/lml_demo.pdf">
+            here
+          </Link>{" "}
+          for more information.
         </Typography>
       </React.Fragment>
     ),
@@ -262,46 +268,24 @@ export default function Home() {
   return (
     <Theme theme={theme}>
       <Topbar links={sections} />
+
       <Box id="title" className={classes.flex}>
         <TitledList title={titleScreen.title} items={titleScreen.items} />
       </Box>
+
       <Box id="projects" className={[classes.accentBg, classes.cardContainer]}>
         <Box className={classes.center}>
           <Typography variant="h1">Projects</Typography>
         </Box>
-        {projects.map((e, i) => {
-          let left = i % 2 === 0
-          return (
-            <React.Fragment key={i}>
-              <Grid
-                container
-                spacing={3}
-                direction="column"
-                alignItems={left ? "flex-start" : "flex-end"}
-              >
-                <Grid
-                  item
-                  className={classes.cardContainer}
-                  sm={12}
-                  md={12}
-                  lg={6}
-                >
-                  <ProjectCard
-                    name={e.name}
-                    desc={e.desc}
-                    image={e.image}
-                    key={e.name}
-                    links={e.links}
-                  />
-                </Grid>
-              </Grid>
-            </React.Fragment>
-          )
-        })}
+        <ProjectPanel proj={projects}></ProjectPanel>
       </Box>
-      <Box id="contact" className={[classes.flex]}>
+
+      <Box id="work" className={classes.flex}></Box>
+
+      <Box id="contact" className={[classes.flex, classes.accentBg]}>
         <TitledList title={contacts.title} items={contacts.items} />
       </Box>
+
       <Box className={classes.accentBg} id="footer-box">
         <Footer>
           <Card className={classes.cardRoot}>
