@@ -48,11 +48,6 @@ class Interface extends React.Component {
       theWorker.terminate()
       onFinish({ ...e.data, didTimeOut: false })
     }
-
-    setTimeout(() => {
-      theWorker.terminate()
-      onFinish({ didTimeOut: true })
-    }, 10000)
   }
 
   render() {

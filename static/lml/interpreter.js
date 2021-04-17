@@ -17750,13 +17750,15 @@
 onmessage = function (e) {
   console.log("Recieved worker")
   console.log(e.data)
+
+  setTimeout(() => {
+    postMessage({ didTimeOut: true })
+  }, 10000)
+
   try {
-    let res = lml.interp(e.data)  
+    let res = lml.interp(e.data)
     postMessage(res)
   } catch (e) {
-    postMessage({error: e, result: "Error"})
+    postMessage({ error: e, result: "Error" })
   }
-
-  
-  
 }
