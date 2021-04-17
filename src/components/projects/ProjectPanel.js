@@ -1,5 +1,5 @@
 import React from "react"
-import ProjectCard from "../ProjectCard"
+import ProjectCard from "./ProjectCard"
 
 import { Grid } from "@material-ui/core"
 import {
@@ -87,21 +87,21 @@ export default function ProjectPanel(props) {
   return (
     <React.Fragment>
       {props.proj.map((e, i) => {
-        let left = i % 2 === 0
+        let left = 0
         return (
           <div key={i}>
             <Grid
               container
               spacing={3}
               direction="column"
-              alignItems={left ? "flex-start" : "flex-end"}
+              alignItems={"flex-start"}
             >
               <Grid
                 item
                 className={classes.cardContainer}
                 sm={12}
                 md={12}
-                lg={6}
+                lg={10}
               >
                 <ProjectCard
                   name={e.name}

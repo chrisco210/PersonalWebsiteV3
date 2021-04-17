@@ -10,14 +10,18 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 750,
-    maxHeight: 750,
+    //maxWidth: 750,
+    //maxHeight: 750,
+    display: "flex",
   },
   media: {
     height: "30vh",
   },
   grow: {
     flexGrow: 1,
+  },
+  content: {
+    //flex: "1 0 auto",
   },
 })
 
@@ -28,14 +32,14 @@ export default function ProjectCard(props) {
     <React.Fragment>
       <Card className={classes.root}>
         <CardActionArea>
-          {props.image ? (
-            <CardMedia
-              className={classes.media}
-              alt={props.image.alttext}
-              image={props.image.url}
-              title={props.image.imagetitle}
-            />
-          ) : null}
+          <CardMedia
+            className={classes.media}
+            alt={props.image.alttext}
+            image={props.image.url}
+            title={props.image.imagetitle}
+          />
+        </CardActionArea>
+        <div className={classes.content}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {props.name}
@@ -44,21 +48,21 @@ export default function ProjectCard(props) {
               {props.desc}
             </Typography>
           </CardContent>
-        </CardActionArea>
-        <CardActions>
-          {props.links.map(e => {
-            return (
-              <Button
-                href={e.href}
-                color="primary"
-                key={e.name}
-                target="_blank"
-              >
-                {e.name}
-              </Button>
-            )
-          })}
-        </CardActions>
+          <CardActions>
+            {props.links.map(e => {
+              return (
+                <Button
+                  href={e.href}
+                  color="primary"
+                  key={e.name}
+                  target="_blank"
+                >
+                  {e.name}
+                </Button>
+              )
+            })}
+          </CardActions>
+        </div>
       </Card>
     </React.Fragment>
   )

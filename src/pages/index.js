@@ -193,9 +193,14 @@ const projects = [
   },
   {
     name: "OScrabble",
-    desc:
-      "OScrabble is an implementation of scrabble written in OCaml, " +
-      "it was created for my CS3110 final project.",
+    desc: (
+      <Typography variant="body1">
+        OScrabble is an implementation of scrabble written in OCaml, in
+        collaboration with Tony Yang and Jack Greenberg, created for our CS 3110
+        final project. It includes local multiplayer, automatic word checking,
+        as well as automatic scoring including bonuses.
+      </Typography>
+    ),
     image: {
       url: "/images/oscrabble.png",
       alttext: "Screenshot of OScrabble",
@@ -251,6 +256,9 @@ const projects = [
           and any number of clients could connect to that server to view and
           modify the world.
         </Typography>
+        <Typography variant="body2">
+          Source code not available due to academic integrity.
+        </Typography>
       </React.Fragment>
     ),
     image: {
@@ -282,7 +290,9 @@ export default function Home() {
         <ProjectPanel proj={projects}></ProjectPanel>
       </Box>
 
-      {/* <Box id="work" className={classes.flex}></Box> */}
+      <Box id="work" className={classes.flex}>
+        <Typography variant="h1">Experience</Typography>
+      </Box>
 
       <Box id="contact" className={[classes.flex]}>
         <TitledList title={contacts.title} items={contacts.items} />
