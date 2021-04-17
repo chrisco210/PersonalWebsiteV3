@@ -1,12 +1,12 @@
 import React from "react"
-import ProjectCard from "./ProjectCard"
 
-import { Grid } from "@material-ui/core"
+import { Grid, Box } from "@material-ui/core"
 import {
   createMuiTheme,
   makeStyles,
   responsiveFontSizes,
 } from "@material-ui/core/styles"
+import ExperienceCard from "./ExperienceCard"
 
 const theme = responsiveFontSizes(
   createMuiTheme({
@@ -71,12 +71,12 @@ const useStyles = makeStyles(t => ({
  * @param  props contains a proj object
  * @returns
  */
-export default function ProjectPanel(props) {
+export default function ExperiencePanel(props) {
   const classes = useStyles()
 
   return (
     <React.Fragment>
-      {props.proj.map((e, i) => {
+      {props.list.map((e, i) => {
         let left = 0
         return (
           <div key={i}>
@@ -93,12 +93,10 @@ export default function ProjectPanel(props) {
                 md={12}
                 lg={10}
               >
-                <ProjectCard
-                  name={e.name}
+                <ExperienceCard
+                  company={e.company}
+                  date={e.date}
                   desc={e.desc}
-                  image={e.image}
-                  key={e.name}
-                  links={e.links}
                 />
               </Grid>
             </Grid>

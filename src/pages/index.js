@@ -22,6 +22,7 @@ import {
   responsiveFontSizes,
 } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
+import ExperiencePanel from "../components/experience/ExperiencePanel"
 
 /**
  * Main page
@@ -85,8 +86,8 @@ const styles = makeStyles(t => ({
     alignItems: "center",
     padding: t.spacing(5),
   },
-  flexCards: {
-    display: "flex",
+  cards: {
+    //display: "flex",
     minHeight: "100vh",
   },
   cardContainer: {
@@ -130,7 +131,7 @@ const sections = [
   { name: "Home", href: "#title" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
-  // { name: "Work Experience", href: "#work" },
+  { name: "Experience", href: "#work" },
   {
     name: "Resume",
     href: "https://resources.rachlinski.net/documents/resume.pdf",
@@ -270,7 +271,47 @@ const projects = [
   },
 ]
 
-const work = [{ name: "Test 1", desc: "blah blah" }]
+const work = [
+  {
+    company: "Wicked Device, LLC",
+    date: { from: "June 2018", to: "August 2018" },
+    desc: (
+      <Typography variant="h6" component="h5">
+        • Developed a prototype of a LoraWAN and WiFi connected thermometer that
+        was later developed into a product. <br /> • Developed a NodeJS based
+        web interface for a piece of calibration equipment used by the company.
+      </Typography>
+    ),
+  },
+  {
+    company: "Wicked Device, LLC",
+    date: { from: "June 2019", to: "August 2019" },
+    desc: (
+      <Typography variant="h6" component="h5">
+        • Researched soil moisture sensors for use with a LoraWAN and WiFi
+        connected soil moisture meter, and provided a recommendation on which
+        sensor I thought was the best to use in the product.
+        <br /> • Researched sound level meters and developed a prototype for a
+        LoraWAN and WiFi connected sound level meter. <br />• Delivered a
+        presentation and written report on my findings.
+      </Typography>
+    ),
+  },
+  {
+    company: "Wicked Device, LLC",
+    date: { from: "June 2020", to: "August 2020" },
+    desc: (
+      <Typography variant="h6" component="h5">
+        • Researched propane tank level sensors for use with a LoraWAN and WiFi
+        connected tank level meter and provided a recommendation on which sensor
+        was best. <br />• Implemented a NodeJS-based backend for integrating the
+        company’s products with If This Then That. <br />• Helped modify
+        existing infrastructure to implement OAuth2 for use with If This Then
+        That.
+      </Typography>
+    ),
+  },
+]
 
 export default function Home() {
   const classes = styles()
@@ -290,15 +331,19 @@ export default function Home() {
         <ProjectPanel proj={projects}></ProjectPanel>
       </Box>
 
-      <Box id="work" className={classes.flex}>
-        <Typography variant="h1">Experience</Typography>
+      <Box id="work" className={[classes.cards, classes.cardContainer]}>
+        <Box className={classes.center}>
+          <Typography variant="h1">Experience</Typography>
+        </Box>
+
+        <ExperiencePanel list={work}></ExperiencePanel>
       </Box>
 
-      <Box id="contact" className={[classes.flex]}>
+      <Box id="contact" className={[classes.flex, classes.accentBg]}>
         <TitledList title={contacts.title} items={contacts.items} />
       </Box>
 
-      <Box className={classes.accentBg} id="footer-box">
+      <Box id="footer-box">
         <Footer>
           <Card className={classes.cardRoot}>
             <CardMedia
