@@ -2,15 +2,11 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardActionArea from "@material-ui/core/CardActionArea"
-import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
-import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import { grey } from "@material-ui/core/colors"
-import { CardHeader } from "@material-ui/core"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(t => ({
   root: {
     //maxHeight: 750,
     display: "flex",
@@ -23,9 +19,12 @@ const useStyles = makeStyles({
   },
   accentBg: {
     backgroundColor: grey[100],
-    maxWidth: "300px",
+    maxWidth: t.spacing(45),
   },
-})
+  padded: {
+    padding: t.spacing(2),
+  },
+}))
 
 /**
  *
@@ -35,17 +34,36 @@ const useStyles = makeStyles({
 export default function ExperienceCard(props) {
   const classes = useStyles()
 
+  let dateString = ""
+
+  if (props.date) {
+    if (props.date.from && props.date.to) {
+      dateString = props.date.from + " - " + props.date.to
+    } else {
+      dateString = props.date
+    }
+  }
+
+  let headerText = (
+    <div className={classes.padded}>
+      <Typography variant="h5" component="h2">
+        {props.position}
+      </Typography>
+      <Typography variant="body2">{props.company}</Typography>
+      <Typography variant="body2">{dateString}</Typography>
+    </div>
+  )
+
+  let actionArea = (
+    <CardActionArea className={classes.accentBg} disabled>
+      {headerText}
+    </CardActionArea>
+  )
+
   let ret = (
     <React.Fragment>
       <Card className={[classes.root]}>
-        <CardActionArea className={classes.accentBg} disabled>
-          <CardHeader
-            title={props.company}
-            subheader={
-              props.date ? props.date.from + " - " + props.date.to : ""
-            }
-          />
-        </CardActionArea>
+        {actionArea}
         <div>
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">

@@ -31,7 +31,7 @@ export default function ProjectCard(props) {
   let ret = (
     <React.Fragment>
       <Card className={classes.root}>
-        <CardActionArea>
+        <CardActionArea disabled>
           <CardMedia
             className={classes.media}
             alt={props.image.alttext}

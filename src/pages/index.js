@@ -2,7 +2,6 @@ import React from "react"
 import Topbar from "../components/Topbar"
 import Theme from "../Theme"
 import TitledList from "../components/TitledList"
-//import ProjectCard from "../components/ProjectCard"
 import Footer from "../components/footer/Footer"
 import FooterPanel from "../components/footer/FooterPanel"
 import ProjectPanel from "../components/projects/ProjectPanel"
@@ -49,6 +48,7 @@ const theme = responsiveFontSizes(
       },
       body1: {
         fontFamily: "Open Sans, sans-serif",
+        fontSize: 18,
       },
       body2: {
         fontFamily: "Open Sans, sans-serif",
@@ -130,8 +130,8 @@ const styles = makeStyles(t => ({
 const sections = [
   { name: "Home", href: "#title" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
   { name: "Experience", href: "#work" },
+  { name: "Contact", href: "#contact" },
   {
     name: "Resume",
     href: "https://resources.rachlinski.net/documents/resume.pdf",
@@ -149,13 +149,40 @@ const contacts = {
     <Link href="mailto:cjr269@cornell.edu" variant="h4">
       cjr269@cornell.edu
     </Link>,
-    <Link href="mailto:chrisrachlinski@gmail.com" variant="h4">
-      chrisrachlinski@gmail.com
-    </Link>,
   ],
 }
 
 const projects = [
+  {
+    name: "Personal Website",
+    desc: (
+      <React.Fragment>
+        <Typography variant="body1">
+          This is my personal website. I put my projects, experience, and my
+          resume on it. It is created using Gatsby.js, a framework for React.js
+          to generate static sites, using the Material UI theme for most of the
+          default components. Click the link to see how much fun recursion is,
+          or see the source code on Github.
+          <br />
+        </Typography>
+      </React.Fragment>
+    ),
+    image: {
+      url: "/images/personal_site.png",
+      alttext: "This website",
+      title: "This website",
+    },
+    links: [
+      {
+        name: "Github",
+        href: "https://github.com/chrisco210/PersonalWebsiteV3",
+      },
+      {
+        name: "Website",
+        href: "https://rachlinski.net",
+      },
+    ],
+  },
   {
     name: "Lml",
     desc: (
@@ -190,6 +217,10 @@ const projects = [
     links: [
       { name: "Github", href: "https://github.com/chrisco210/Lml" },
       { name: "Online Demo", href: "/lml" },
+      {
+        name: "Guide",
+        href: "https://resources.rachlinski.net/documents/lml_demo.pdf",
+      },
     ],
   },
   {
@@ -273,7 +304,32 @@ const projects = [
 
 const work = [
   {
+    company: "Amazon",
+    position: "Software Engineering Intern",
+    date: "Summer 2022",
+    desc: (
+      <Typography variant="h6" component="h5">
+        I am excited to have accepted a position as a SDE intern at Amazon for
+        the summer of 2022, and I am very much looking forward to this
+        experience!
+      </Typography>
+    ),
+  },
+  {
+    company: "Cornell University",
+    position: "Teaching Assistant",
+    date: { from: "August 2021", to: "Present" },
+    desc: (
+      <Typography variant="h6" component="h5">
+        As a teaching assistant for Intro to Analysis of Algorithms, I held
+        weekly office hours to answer student's questions and graded weekly
+        problem sets.
+      </Typography>
+    ),
+  },
+  {
     company: "Wicked Device, LLC",
+    position: "Summer Intern",
     date: { from: "June 2020", to: "August 2020" },
     desc: (
       <Typography variant="h6" component="h5">
@@ -289,6 +345,7 @@ const work = [
   {
     company: "Wicked Device, LLC",
     date: { from: "June 2019", to: "August 2019" },
+    position: "Summer Intern",
     desc: (
       <Typography variant="h6" component="h5">
         • Researched soil moisture sensors for use with a LoraWAN and WiFi
@@ -303,6 +360,7 @@ const work = [
   {
     company: "Wicked Device, LLC",
     date: { from: "June 2018", to: "August 2018" },
+    position: "Summer Intern",
     desc: (
       <Typography variant="h6" component="h5">
         • Developed a prototype of a LoraWAN and WiFi connected thermometer that
@@ -327,6 +385,11 @@ export default function Home() {
       <Box id="projects" className={[classes.accentBg, classes.cardContainer]}>
         <Box className={classes.center}>
           <Typography variant="h1">Projects</Typography>
+          <Typography>
+            Here is a selection of projects I have done over the years. A few
+            are from classes I have taken, and some are from previous
+            internships.
+          </Typography>
         </Box>
         <ProjectPanel proj={projects}></ProjectPanel>
       </Box>
@@ -367,11 +430,6 @@ export default function Home() {
                 <Typography>
                   <Link href="mailto:cjr269@cornell.edu">
                     cjr269@cornell.edu
-                  </Link>
-                </Typography>
-                <Typography>
-                  <Link href="mailto:chrisrachlinski@gmail.com">
-                    chrisrachlinski@gmail.com
                   </Link>
                 </Typography>
               </CardContent>

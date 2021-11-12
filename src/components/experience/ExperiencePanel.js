@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Grid, Box } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import {
   createMuiTheme,
   makeStyles,
@@ -25,6 +25,9 @@ const theme = responsiveFontSizes(
         fontFamily: "Roboto Slab, serif",
       },
       h5: {
+        fontFamily: "Roboto Slab, serif",
+      },
+      h6: {
         fontFamily: "Roboto Slab, serif",
       },
       body1: {
@@ -97,6 +100,8 @@ export default function ExperiencePanel(props) {
                   company={e.company}
                   date={e.date}
                   desc={e.desc}
+                  image={e.image}
+                  position={e.position}
                 />
               </Grid>
             </Grid>
