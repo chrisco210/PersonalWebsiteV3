@@ -274,12 +274,15 @@ const projects = [
 const work = [
   {
     company: "Wicked Device, LLC",
-    date: { from: "June 2018", to: "August 2018" },
+    date: { from: "June 2020", to: "August 2020" },
     desc: (
       <Typography variant="h6" component="h5">
-        • Developed a prototype of a LoraWAN and WiFi connected thermometer that
-        was later developed into a product. <br /> • Developed a NodeJS based
-        web interface for a piece of calibration equipment used by the company.
+        • Researched propane tank level sensors for use with a LoraWAN and WiFi
+        connected tank level meter and provided a recommendation on which sensor
+        was best. <br />• Implemented a NodeJS-based backend for integrating the
+        company’s products with If This Then That. <br />• Helped modify
+        existing infrastructure to implement OAuth2 for use with If This Then
+        That.
       </Typography>
     ),
   },
@@ -299,15 +302,12 @@ const work = [
   },
   {
     company: "Wicked Device, LLC",
-    date: { from: "June 2020", to: "August 2020" },
+    date: { from: "June 2018", to: "August 2018" },
     desc: (
       <Typography variant="h6" component="h5">
-        • Researched propane tank level sensors for use with a LoraWAN and WiFi
-        connected tank level meter and provided a recommendation on which sensor
-        was best. <br />• Implemented a NodeJS-based backend for integrating the
-        company’s products with If This Then That. <br />• Helped modify
-        existing infrastructure to implement OAuth2 for use with If This Then
-        That.
+        • Developed a prototype of a LoraWAN and WiFi connected thermometer that
+        was later developed into a product. <br /> • Developed a NodeJS based
+        web interface for a piece of calibration equipment used by the company.
       </Typography>
     ),
   },
@@ -331,7 +331,7 @@ export default function Home() {
         <ProjectPanel proj={projects}></ProjectPanel>
       </Box>
 
-      <Box id="work" className={[classes.cards, classes.cardContainer]}>
+      <Box id="work" className={[classes.cardContainer]}>
         <Box className={classes.center}>
           <Typography variant="h1">Experience</Typography>
         </Box>

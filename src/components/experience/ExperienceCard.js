@@ -12,7 +12,7 @@ import { CardHeader } from "@material-ui/core"
 
 const useStyles = makeStyles({
   root: {
-    maxHeight: 750,
+    //maxHeight: 750,
     display: "flex",
   },
   media: {
@@ -21,11 +21,9 @@ const useStyles = makeStyles({
   grow: {
     flexGrow: 1,
   },
-  content: {
-    //flex: "1 0 auto",
-  },
   accentBg: {
     backgroundColor: grey[100],
+    maxWidth: "300px",
   },
 })
 
@@ -48,12 +46,13 @@ export default function ExperienceCard(props) {
             }
           />
         </CardActionArea>
-
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.desc}
-          </Typography>
-        </CardContent>
+        <div>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.desc}
+            </Typography>
+          </CardContent>
+        </div>
       </Card>
     </React.Fragment>
   )
