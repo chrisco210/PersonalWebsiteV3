@@ -48,14 +48,15 @@ export default function Topbar(props) {
           style={{ transition: "300ms ease" }}
         >
           <div className={classes.grow} />
-
-          {props.links.map((e, i) => {
-            return (
-              <Button color="inherit" href={e.href} size="large" key={i}>
-                {e.name}
-              </Button>
-            )
-          })}
+          <div>
+            {props.links.map((e, i) => {
+              return (
+                <Button color="inherit" href={e.href} size="large" key={i}>
+                  {e.name}
+                </Button>
+              )
+            })}
+          </div>
         </Toolbar>
       </AppBar>
       {/* <Toolbar className={classes.toolbar} color="transparent" /> */}

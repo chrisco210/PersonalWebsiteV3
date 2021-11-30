@@ -132,9 +132,11 @@ const sections = [
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#work" },
   { name: "Contact", href: "#contact" },
+  { name: "Blog", href: "https://blog.rachlinski.net", external: true },
   {
     name: "Resume",
     href: "https://resources.rachlinski.net/documents/resume.pdf",
+    external: true,
   },
 ]
 
@@ -230,9 +232,9 @@ const projects = [
         <Typography variant="body1">
           This is a food blog I run with my girlfriend. It is a mostly a joke,
           it is a joke, kind of, but we do kinda take it seriously. We
-          originally wanted to quantify the best eggs benedict in ithaca.
-          However, we have since expanded to include more than brunch, and never
-          included a single eggs benedict on our blog. The blog is made with
+          originally wanted to find the best eggs benedict in Ithaca. However,
+          we have since expanded to include more than brunch, and never included
+          a single eggs benedict on our blog. The blog is made with{" "}
           <Link href="https://hexo.io/" color="secondary" target="_blank">
             Hexo
           </Link>
@@ -241,7 +243,7 @@ const projects = [
       </React.Fragment>
     ),
     image: {
-      url: "/images/blogscreenshot.png",
+      url: "/images/feedthebeans.png",
       alttext: "Picture of the blog",
       title: "Picture of the blog",
     },
