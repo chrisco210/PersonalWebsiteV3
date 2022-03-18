@@ -156,6 +156,32 @@ const contacts = {
 
 const projects = [
   {
+    name: "Ray Tracing",
+    desc: (
+      <React.Fragment>
+        <Typography variant="body1">
+          A C++ ray tracer created for a CS4620 Graphics final project, created
+          in collaboration with Jack Greenberg, Aidan Campbell, and Christopher
+          Bakhos. Featuring phong lighting, reflections, transparency,
+          refraction, and many optimizations to make it run fast(er). Definitely
+          one of my favorite projects.
+          <br />
+        </Typography>
+      </React.Fragment>
+    ),
+    image: {
+      url: "/images/finalscene-FIXED-downscale.png",
+      alttext: "The scene",
+      title: "The scene",
+    },
+    links: [
+      {
+        name: "Full res image",
+        href: "https://resources.rachlinski.net/img/fullres.png",
+      },
+    ],
+  },
+  {
     name: "Personal Website",
     desc: (
       <React.Fragment>
