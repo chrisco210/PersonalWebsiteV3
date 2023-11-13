@@ -24,6 +24,9 @@ const useStyles = makeStyles(t => ({
   padded: {
     padding: t.spacing(2),
   },
+  fullWidth: {
+    width: "100%",
+  },
 }))
 
 /**
@@ -62,7 +65,7 @@ export default function ExperienceCard(props) {
 
   let ret = (
     <React.Fragment>
-      <Card className={[classes.root]}>
+      <Card className={[classes.root, classes.fullWidth]}>
         {actionArea}
         <div>
           <CardContent>

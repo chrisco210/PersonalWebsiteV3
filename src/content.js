@@ -24,7 +24,7 @@ const sections = [
 
 const titleScreen = {
   title: ["Chris", "Rachlinski"],
-  items: ["Computer Science at Cornell Engineering '23"],
+  items: ["SDE at Amazon Web Services", "Computer Science at Cornell '23"],
 }
 
 const contactsList = [
