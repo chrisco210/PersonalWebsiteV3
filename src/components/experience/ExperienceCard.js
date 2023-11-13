@@ -65,7 +65,7 @@ export default function ExperienceCard(props) {
 
   let ret = (
     <React.Fragment>
-      <Card className={[classes.root, classes.fullWidth]}>
+      <Card className={[classes.root]}>
         {actionArea}
         <div>
           <CardContent>
