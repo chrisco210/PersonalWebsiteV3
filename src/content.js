@@ -255,6 +255,13 @@ const work = [
         I work on{" "}
         <a href="https://aws.amazon.com/s3/outposts/" target="_blank">
           S3 on Outposts
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://aws.amazon.com/about-aws/global-infrastructure/localzones/"
+          target="_blank"
+        >
+          Local Zones
         </a>
         .
       </Typography>
